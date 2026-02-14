@@ -8,3 +8,9 @@ fetch("components/navbar.html")
     document.body.appendChild(script);
   });
   
+fetch("components/hero.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("hero").innerHTML = data;
+  });
+  
