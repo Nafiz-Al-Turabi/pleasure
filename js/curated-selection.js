@@ -1,21 +1,101 @@
 (() => {
   const profiles = [
-    { id: 1, name: "Clara Bennett", bio: "This is not a bio. It’s a context cue.", image: "/assets/images/curated/p1.jpg" },
-    { id: 2, name: "Ethan Cole", bio: "Creative strategist and thinker.", image: "/assets/images/curated/p2.jpg" },
-    { id: 3, name: "Sophia Lane", bio: "Design is intelligence made visible.", image: "/assets/images/curated/p3.jpg" },
-    { id: 4, name: "Liam Carter", bio: "Building digital experiences.", image: "/assets/images/curated/p4.jpg" },
-    { id: 5, name: "Olivia Brooks", bio: "Minimalism with purpose.", image: "/assets/images/curated/p5.jpg" },
-    { id: 6, name: "Noah Turner", bio: "Frontend developer & UI lover.", image: "/assets/images/curated/p6.jpg" },
-    { id: 7, name: "Ava Mitchell", bio: "Brand storyteller.", image: "/assets/images/curated/p7.png" },
-    { id: 8, name: "James Parker", bio: "Turning ideas into impact.", image: "/assets/images/curated/p8.jpg" },
-    { id: 9, name: "Isabella Reed", bio: "Creative problem solver.", image: "/assets/images/curated/p9.jpg" },
-    { id: 10, name: "Benjamin Scott", bio: "Passionate about innovation.", image: "/assets/images/curated/p10.jpg" },
-    { id: 11, name: "Mia Collins", bio: "Design-driven mindset.", image: "/assets/images/curated/p11.jpg" },
-    { id: 12, name: "Lucas Adams", bio: "Crafting seamless interfaces.", image: "/assets/images/curated/p12.jpg" },
-    { id: 13, name: "Charlotte Hill", bio: "Elevating digital brands.", image: "/assets/images/curated/p13.jpg" },
-    { id: 14, name: "Henry Watson", bio: "Strategic creative direction.", image: "/assets/images/curated/p14.png" },
-    { id: 15, name: "Amelia Wright", bio: "User-first design thinker.", image: "/assets/images/curated/p15.jpg" },
-    { id: 16, name: "Daniel Harris", bio: "Building meaningful products.", image: "/assets/images/curated/p16.jpg" }
+    {
+      id: 1,
+      name: "Clara Bennett",
+      bio: "This is not a bio. It’s a context cue.",
+      image: "/assets/images/curated/p1.jpg",
+    },
+    {
+      id: 2,
+      name: "Elena Moreau",
+      bio: "Drawn to confidence, elegance, and quiet intensity.",
+      image: "/assets/images/curated/p2.jpg",
+    },
+    {
+      id: 3,
+      name: "Sofia Laurent",
+      bio: "I enjoy reflective moments and considered conversation.",
+      image: "/assets/images/curated/p3.jpg",
+    },
+    {
+      id: 4,
+      name: "Amélie Roche",
+      bio: "Natural ease, warm energy, and unforced connection.",
+      image: "/assets/images/curated/p4.jpg",
+    },
+    {
+      id: 5,
+      name: "Isabella Cruz",
+      bio: "Warm energy and natural connection.",
+      image: "/assets/images/curated/p5.jpg",
+    },
+    {
+      id: 6,
+      name: "Lucia Ferri",
+      bio: "Warm energy and natural connection.",
+      image: "/assets/images/curated/p6.jpg",
+    },
+    {
+      id: 7,
+      name: "Valentina Ríos",
+      bio: "I appreciate intimacy, softness, and presence.",
+      image: "/assets/images/curated/p7.png",
+    },
+    {
+      id: 8,
+      name: "Leda Forsila",
+      bio: "I appreciate intimacy, softness, and presence.",
+      image: "/assets/images/curated/p8.jpg",
+    },
+    {
+      id: 9,
+      name: "Eva Lindström",
+      bio: "Quiet confidence and meaningful atmosphere.",
+      image: "/assets/images/curated/p9.jpg",
+    },
+    {
+      id: 10,
+      name: "Nina Holm",
+      bio: "I’m drawn to simplicity and genuine attention.",
+      image: "/assets/images/curated/p10.jpg",
+    },
+    {
+      id: 11,
+      name: "Alex Medila",
+      bio: "I’m drawn to simplicity and genuine attention.",
+      image: "/assets/images/curated/p11.jpg",
+    },
+    {
+      id: 12,
+      name: "Camila Ortega",
+      bio: "Moments feel best when they’re unhurried.",
+      image: "/assets/images/curated/p12.jpg",
+    },
+    {
+      id: 13,
+      name: "Camila Ortega",
+      bio: "Moments feel best when they’re unhurried.",
+      image: "/assets/images/curated/p13.jpg",
+    },
+    {
+      id: 14,
+      name: "Alex Medila",
+      bio: "I’m drawn to simplicity and genuine attention.",
+      image: "/assets/images/curated/p14.png",
+    },
+    {
+      id: 15,
+      name: "Nina Holm",
+      bio: "I’m drawn to simplicity and genuine attention.",
+      image: "/assets/images/curated/p15.jpg",
+    },
+    {
+      id: 16,
+      name: "Eva Lindström",
+      bio: "Quiet confidence and meaningful atmosphere.",
+      image: "/assets/images/curated/p16.jpg",
+    },
   ];
 
   const cardGrid = document.getElementById("cardGrid");
