@@ -37,3 +37,13 @@ fetch("components/curated-selection.html")
     document.querySelectorAll(".how-booking-works")
       .forEach(el => el.innerHTML = data);
   });
+
+
+  // footer
+
+  fetch("components/footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+
