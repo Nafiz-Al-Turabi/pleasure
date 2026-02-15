@@ -29,3 +29,11 @@ fetch("components/curated-selection.html")
   .then(data => {
     document.getElementById("services").innerHTML = data;
   });
+
+
+  fetch("components/how-booking-works.html")
+  .then(response => response.text())
+  .then(data => {
+    document.querySelectorAll(".how-booking-works")
+      .forEach(el => el.innerHTML = data);
+  });
