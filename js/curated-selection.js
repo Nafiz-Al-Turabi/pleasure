@@ -107,15 +107,15 @@
         <img
           src="${profile.image}"
           alt="${profile.name}"
-          class="w-full h-[455px] object-cover"
+          class="w-full h-[210px] lg:h-[455px] object-cover"
         />
         <div
-          class="absolute w-full bottom-0 bg-gradient-to-t from-[#38383899] to-transparent backdrop-blur-[2px] h-[156.08px] flex flex-col justify-end px-4 py-3 text-white"
+          class="absolute w-full bottom-0 bg-gradient-to-t from-[#38383899] to-transparent backdrop-blur-[2px] lg:h-[156.08px] flex flex-col justify-end py-3 px-2 lg:px-4 lg:py-3 text-white"
         >
-          <h3 class="text-[21px] font-medium leading-[110%] mb-2">
+          <h3 class="text-center lg:text-left text-sm lg:text-[21px] font-medium leading-[14px] lg:leading-[110%] mb-2">
             ${profile.name}
           </h3>
-          <p class="text-[15px] leading-[110%]">
+          <p class="hidden lg:block text-[15px] leading-[110%]">
             ${profile.bio}
           </p>
         </div>
