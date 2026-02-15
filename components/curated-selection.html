@@ -17,19 +17,44 @@
       </div>
       <!-- Cards -->
       <div>
-        <div id="cardGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.75">
-          
-        </div>
+        <div
+          id="cardGrid"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.75"
+        ></div>
         <!--mobile button -->
         <button
-          class="lg:hidden w-full border border-black text-center font-light py-4.5 mt-12 rounded-full cursor-pointer hover:bg-[#C9B68A] duration-300 ease-in-out "
+          class="lg:hidden w-full border border-black text-center font-light py-4.5 mt-12 rounded-full cursor-pointer hover:bg-[#C9B68A] duration-300 ease-in-out"
         >
           Show more profiles
         </button>
       </div>
-
-      <div>
-        
+      <!-- desktop -->
+      <div class="mt-10 hidden lg:block">
+        <p class="text-base w-[710px]">
+          Visitors looking for high-class companionship in Amsterdam often seek
+          reassurance first: professionalism, discretion, and a sense that
+          everything is handled properly. At Pleasure, the selection itself sets
+          the tone — calm, refined, and intentionally presented.
+        </p>
+        <div class="mt-[59px] flex justify-between items-end">
+          <p class="text-base w-[710px]">Each profile is designed to give clarity without noise. For the smoothest confirmation, we recommend selecting two to three preferences. This allows us to align availability efficiently and respond with clarity, even if a first preference is not immediately available.</p>
+          <button class=" border border-black hover:border-white hover:text-white text-lg text-center font-light py-3 px-8 rounded-full cursor-pointer hover:bg-[#C9B68A] duration-300 ease-in-out">View all Profiles ></button>
+        </div>
+      </div>
+      <!-- mobile -->
+      <div class="lg:hidden mt-[29px]">
+          <div class="pb-6 border-b border-black/10 flex gap-2.5 items-start mt-">
+            <p class="text-[15px] leading-[22.5px]">Visitors looking for high-class companionship in Amsterdam often seek...</p>
+            <button class="text-sm leading-[21px] underline">read more</button>
+          </div>
+          <div class="py-6 border-b border-black/10 flex gap-2.5 items-start mt-">
+            <p class="text-[15px] leading-[22.5px]">At Pleasure, the selection itself sets the tone — calm, refined, and intentionally...</p>
+            <button class="text-sm leading-[21px] underline">read more</button>
+          </div>
+          <div class="py-6 border-b border-black/10 flex gap-2.5 items-start mt-">
+            <p class="text-[15px] leading-[22.5px]">Each profile is designed to give clarity without noise. For the smoothest...</p>
+            <button class="text-sm leading-[21px] underline">read more</button>
+          </div>
       </div>
     </section>
   </body>
