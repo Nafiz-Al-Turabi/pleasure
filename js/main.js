@@ -18,9 +18,14 @@ fetch("components/curated-selection.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("curated-selection").innerHTML = data;
-    // Load external renderer after the component is injected so scripts run
+
     const script = document.createElement("script");
     script.src = "/js/curated-selection.js";
     document.body.appendChild(script);
   });
   
+  fetch("components/services.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("services").innerHTML = data;
+  });
