@@ -54,10 +54,11 @@ fetch("components/curated-selection.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("trusted-section").innerHTML = data;
-
-    const script = document.createElement("script");
-    script.src = "/js/trusted-section.js";
-    document.body.appendChild(script);
+  });
+  fetch("components/faq-section.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("faq-section").innerHTML = data;
   });
 
     fetch("components/availability-by-city.html")
