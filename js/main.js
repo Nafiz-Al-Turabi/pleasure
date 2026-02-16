@@ -55,10 +55,17 @@ fetch("components/curated-selection.html")
   .then(data => {
     document.getElementById("trusted-section").innerHTML = data;
   });
+
   fetch("components/faq-section.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("faq-section").innerHTML = data;
+  });
+  
+  fetch("components/writings-on-private.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("writings-on-private").innerHTML = data;
   });
 
     fetch("components/availability-by-city.html")
