@@ -49,10 +49,22 @@ fetch("components/curated-selection.html")
   .then(data => {
     document.getElementById("pricing").innerHTML = data;
   });
-  fetch("components/availability-by-city.html")
+
+  fetch("components/trusted-section.html")
   .then(response => response.text())
   .then(data => {
-    document.getElementById("availability-by-city").innerHTML = data;
+    document.getElementById("trusted-section").innerHTML = data;
+
+    const script = document.createElement("script");
+    script.src = "/js/trusted-section.js";
+    document.body.appendChild(script);
+  });
+
+    fetch("components/availability-by-city.html")
+  .then(response => response.text())
+  .then(data => {
+    document.querySelectorAll(".availability-by-city")
+      .forEach(el => el.innerHTML = data);
   });
 
   // footer
@@ -62,4 +74,3 @@ fetch("components/curated-selection.html")
   .then(data => {
     document.getElementById("footer").innerHTML = data;
   });
-

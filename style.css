@@ -25,3 +25,8 @@ nav.nav-top {
   background-color: transparent;
   box-shadow: none;
 }
+
+.card {
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+}
