@@ -33,6 +33,29 @@ nav.nav-top {
   backdrop-filter: blur(10.889589309692383px);
 }
 
+/* .btn {
+  color: white;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.btn:active {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    color: #000000;
+  }
+
+  .btn:active {
+    color: rgba(0, 0, 0, 0.6);
+  }
+} */
+
 .card {
   transition: opacity 0.4s ease;
   cursor: pointer;
