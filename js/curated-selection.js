@@ -129,7 +129,7 @@
                   ${profile.name}
                 </h3>
 
-                <p class="hidden lg:block text-[15px]">${profile.bio}</p>
+                <p class="hidden lg:block text-[15px] leading-[110%] tracking-[-0.305px]">${profile.bio}</p>
               </div>
             </div>
           </div>
