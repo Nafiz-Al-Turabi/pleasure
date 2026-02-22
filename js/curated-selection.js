@@ -146,7 +146,6 @@
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // Only apply on mobile
         if (window.innerWidth < 1024) {
           if (entry.isIntersecting) {
             button.classList.add("sticky-active");
