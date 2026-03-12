@@ -22,7 +22,7 @@
   <body>
     <div id="navbar"></div>
     <main>
-      <header class="pt-10 lg:pt-20 xl:pt-[120px] mb-[70px] ">
+      <header class="pt-10 lg:pt-20 xl:pt-[120px] mb-[70px]">
         <div class="max-w-[1336px] mx-auto px-8 py-16 xl:py-25">
           <div
             class="flex flex-col lg:flex-row justify-between items-center mb-10"
@@ -133,12 +133,26 @@
         </div>
       </header>
       <!-- Gallery -->
-      <section class="max-w-[1336px] mx-auto px-4 lg:px-8 py-10">
-        <div class="lg:hidden" id="profile-gallery-mobile" aria-label="Profile gallery carousel">
+      <section class="max-w-[1336px] mx-auto px-4 lg:px-8 pb-20 lg:pb-25">
+        <div
+          class="lg:hidden"
+          id="profile-gallery-mobile"
+          aria-label="Profile gallery carousel"
+        >
           <div id="profile-gallery-track"></div>
         </div>
 
-        <div class="hidden lg:grid grid-cols-12 gap-4" id="profile-gallery-desktop"></div>
+        <div
+          class="hidden lg:grid grid-cols-12 gap-4"
+          id="profile-gallery-desktop"
+        ></div>
+
+        <button
+          class="lg:hidden bg-[#E5DED4] w-full lg:w-fit sm:bg-transparent text-black flex justify-center sm:justify-start items-center sm:items-end text-xl xl:text-2xl font-tight tracking-[-1px] leading-[110%] text-left py-4 sm:py-0 px-6 sm:px-0 border border-black sm:border-none rounded-full cursor-pointer lg:hover:text-black/75 lg:active:text-black/50 duration-300 mt-8"
+        >
+          Booking request
+          <i class="fa-solid fa-arrow-right text-xl -rotate-45 ml-2"></i>
+        </button>
       </section>
     </main>
     <div id="footer"></div>
