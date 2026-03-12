@@ -132,25 +132,13 @@
           </div>
         </div>
       </header>
-      <!-- Galary -->
-      <section class="max-w-[1336px] mx-auto px-8 py-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <div class="lg:col-span-4">
-            <img src="/assets/images/gallery/1.png" alt="" class="h-full w-full object-cover" />
-          </div>
-          <div class="lg:col-span-4">
-            <img src="/assets/images/gallery/2.png" alt="" class="h-full w-full object-cover" />
-          </div>
-          <div class="lg:col-span-4">
-            <img src="/assets/images/gallery/3.png" alt="" class="h-full w-full object-cover" />
-          </div>
-          <div class="lg:col-span-6">
-            <img src="/assets/images/gallery/4.png" alt="" class="h-full w-full object-cover" />
-          </div>
-          <div class="lg:col-span-6">
-            <img src="/assets/images/gallery/5.png" alt="" class="h-full w-full object-cover" />
-          </div>
+      <!-- Gallery -->
+      <section class="max-w-[1336px] mx-auto px-4 lg:px-8 py-10">
+        <div class="lg:hidden" id="profile-gallery-mobile" aria-label="Profile gallery carousel">
+          <div id="profile-gallery-track"></div>
         </div>
+
+        <div class="hidden lg:grid grid-cols-12 gap-4" id="profile-gallery-desktop"></div>
       </section>
     </main>
     <div id="footer"></div>
