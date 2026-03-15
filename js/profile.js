@@ -36,7 +36,7 @@ function renderProfileGallery() {
   mobileTrack.innerHTML = profileGalleryImages
     .map(
       (image) =>
-        `<article class="shrink-0 basis-[82%] sm:basis-[56%] snap-start rounded-[14px] overflow-hidden bg-[#d9d0c4]"><img src="${image.src}" alt="${image.alt}" class="block h-[400px] w-full object-cover" /></article>`,
+        `<article class="shrink-0 basis-[82%] sm:basis-[56%] snap-start rounded-[14px] overflow-hidden bg-[#d9d0c4]"><img src="${image.src}" alt="${image.alt}" class="block h-[300px] w-full object-cover" /></article>`,
     )
     .join("");
 
