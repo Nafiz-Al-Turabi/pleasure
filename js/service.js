@@ -65,3 +65,13 @@ fetch("../components/service/vip-service.html")
     document.getElementById("vip-service").innerHTML = data;
     renderVipServiceCards();
   });
+
+fetch("../components/service/presence.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("presence").innerHTML = data;
+    renderVipServiceCards();
+  });
+
+
+
