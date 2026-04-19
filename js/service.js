@@ -72,6 +72,24 @@ fetch("../components/service/presence.html")
     document.getElementById("presence").innerHTML = data;
     renderVipServiceCards();
   });
+fetch("../components/service/what-we-need.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("what-we-need").innerHTML = data;
+    renderVipServiceCards();
+  });
+
+    fetch("../components/next-step.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("next-step").innerHTML = data;
+    });
+  fetch("../components/service/discover-other-services.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("discover-other-services").innerHTML = data;
+  });
+
 
 
 
