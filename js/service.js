@@ -84,10 +84,17 @@ fetch("../components/service/what-we-need.html")
     .then((data) => {
       document.getElementById("next-step").innerHTML = data;
     });
+
   fetch("../components/service/discover-other-services.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("discover-other-services").innerHTML = data;
+  });
+
+  fetch("../components/service/vip-amsterdam.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("vip-amsterdam").innerHTML = data;
   });
 
 
