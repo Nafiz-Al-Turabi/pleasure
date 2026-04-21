@@ -101,6 +101,12 @@ fetch("../components/service/what-we-need.html")
   .then((data) => {
     document.getElementById("services").innerHTML = data;
   });
+  
+  fetch("../components/service/services-cards.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("services-cards").innerHTML = data;
+  });
 
 
 
