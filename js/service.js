@@ -20,6 +20,88 @@ fetch("../components/service/service-hero.html")
     document.getElementById("service-hero").innerHTML = data;
   });
 
+function renderServiceCards() {
+  const cardsRoot = document.getElementById("service-cards-grid");
+  if (!cardsRoot) return;
+
+  const cards = [
+    {
+      number: "01",
+      title: "VIP / Bespoke",
+      description: "Tailored high-end alignment for premium settings.",
+    },
+    {
+      number: "02",
+      title: "Couples Service",
+      description: "A shared experience with calm boundaries.",
+    },
+    {
+      number: "03",
+      title: "Dinner Date",
+      description: "Elegant company for evenings out.",
+    },
+    {
+      number: "04",
+      title: "Hotel Service",
+      description: "Private, discreet, and efficiently arranged.",
+    },
+    {
+      number: "05",
+      title: "Duo Service",
+      description: "Two companions, one coordinated arrangement.",
+    },
+    {
+      number: "06",
+      title: "Massage",
+      description: "Calm and professional, by appointment.",
+    },
+    {
+      number: "07",
+      title: "Business Companionship",
+      description: "Representative company for business settings.",
+    },
+    {
+      number: "08",
+      title: "Overnight",
+      description: "Longer arrangements, aligned in advance.",
+    },
+    {
+      number: "09",
+      title: "Party & Event",
+      description: "For social settings where presence matters.",
+    },
+    {
+      number: "10",
+      title: "Personal Companionship",
+      description: "Warm, natural company - discreetly aligned.",
+    },
+    {
+      number: "11",
+      title: "Private Performance",
+      description: "A private moment, tastefully delivered.",
+    },
+    {
+      number: "12",
+      title: "City Experience",
+      description: "A curated outing aligned to your pace and setting.",
+    },
+  ];
+
+  cardsRoot.innerHTML = cards
+    .map(
+      (card) => `
+            <div class="md:h-[344px] flex flex-col md:justify-between border border-black/10 lg:border-black py-7 px-4 rounded rounded-2xl" >
+                <div class="mb-2">
+                    <h1 class="text-[2.625rem] lg:text-5xl times-font text-center mb-2">${card.number}</h1>
+                    <p class="text-lg lg:text-xl times-font text-center">${card.title}</p>
+                </div>
+                <p class="text-sm text-center">${card.description}</p>
+            </div>
+      `
+    )
+    .join("");
+}
+
 function renderVipServiceCards() {
   const cardsRoot = document.getElementById("vip-service-cards");
   if (!cardsRoot) return;
@@ -106,6 +188,7 @@ fetch("../components/service/what-we-need.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("services-cards").innerHTML = data;
+    renderServiceCards();
   });
 
 
