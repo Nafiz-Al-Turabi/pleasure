@@ -96,6 +96,11 @@ fetch("../components/service/what-we-need.html")
   .then((data) => {
     document.getElementById("vip-amsterdam").innerHTML = data;
   });
+  fetch("../components/service/services.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("services").innerHTML = data;
+  });
 
 
 
