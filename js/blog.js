@@ -13,9 +13,16 @@ fetch("../components/footer.html")
   .then((data) => {
     document.getElementById("footer").innerHTML = data;
   });
+
 fetch("../components/blog/bloh-hero.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("blog-hero").innerHTML = data;
+  });
+
+fetch("../components/blog/why-privacy.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("why-privacy").innerHTML = data;
   });
 
