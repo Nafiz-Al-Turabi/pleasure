@@ -25,4 +25,9 @@ fetch("../components/blog/why-privacy.html")
   .then((data) => {
     document.getElementById("why-privacy").innerHTML = data;
   });
+fetch("../components/blog/our-companion.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("our-companion").innerHTML = data;
+  });
 
