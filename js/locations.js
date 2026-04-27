@@ -19,3 +19,8 @@ fetch("../components/footer.html")
   .then((data) => {
     document.getElementById("locations-hero").innerHTML = data;
   });
+  fetch("../components/locations/find-your-city.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("find-your-city").innerHTML = data;
+  });
