@@ -14,13 +14,127 @@ fetch("../components/footer.html")
     document.getElementById("footer").innerHTML = data;
   });
 
-  fetch("../components/locations/location-hero.html")
+fetch("../components/locations/location-hero.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("locations-hero").innerHTML = data;
   });
-  fetch("../components/locations/find-your-city.html")
+
+fetch("../components/locations/find-your-city.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("find-your-city").innerHTML = data;
+    initializeCustomRegionSelect();
   });
+
+function initializeCustomRegionSelect() {
+  const customSelects = document.querySelectorAll("[data-custom-select]");
+
+  customSelects.forEach((selectRoot) => {
+    if (selectRoot.dataset.initialized === "true") {
+      return;
+    }
+
+    selectRoot.dataset.initialized = "true";
+
+    const trigger = selectRoot.querySelector("[data-custom-select-trigger]");
+    const menu = selectRoot.querySelector("[data-custom-select-menu]");
+    const label = selectRoot.querySelector("[data-custom-select-label]");
+    const valueInput = selectRoot.querySelector("[data-custom-select-value]");
+    const chevron = selectRoot.querySelector("[data-custom-select-chevron]");
+    const options = Array.from(menu.querySelectorAll("[role='option']"));
+
+    if (!trigger || !menu || !label || !valueInput || !chevron || !options.length) {
+      return;
+    }
+
+    const closeMenu = () => {
+      menu.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
+      menu.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+      chevron.classList.remove("rotate-180");
+      trigger.setAttribute("aria-expanded", "false");
+    };
+
+    const openMenu = () => {
+      menu.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
+      menu.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+      chevron.classList.add("rotate-180");
+      trigger.setAttribute("aria-expanded", "true");
+    };
+
+    const isOpen = () => trigger.getAttribute("aria-expanded") === "true";
+
+    const selectOption = (optionEl) => {
+      const selectedValue = optionEl.dataset.value || "";
+      const selectedLabel = optionEl.dataset.label || optionEl.textContent.trim();
+
+      valueInput.value = selectedValue;
+      label.textContent = selectedLabel;
+
+      options.forEach((item) => {
+        item.classList.remove("bg-[#ECE4D8]", "text-[#2F2A24]");
+      });
+      optionEl.classList.add("bg-[#ECE4D8]", "text-[#2F2A24]");
+
+      closeMenu();
+      trigger.focus();
+    };
+
+    trigger.addEventListener("click", () => {
+      if (isOpen()) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openMenu();
+        options[0].focus();
+      }
+    });
+
+    options.forEach((optionEl, index) => {
+      optionEl.addEventListener("click", () => selectOption(optionEl));
+
+      optionEl.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectOption(optionEl);
+        }
+
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          const nextIndex = (index + 1) % options.length;
+          options[nextIndex].focus();
+        }
+
+        if (event.key === "ArrowUp") {
+          event.preventDefault();
+          const prevIndex = (index - 1 + options.length) % options.length;
+          options[prevIndex].focus();
+        }
+
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeMenu();
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!selectRoot.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+  });
+}
