@@ -27,6 +27,17 @@ fetch("../components/locations/find-your-city.html")
     initializeCustomRegionSelect();
   });
 
+  fetch("../components/locations/core-locations.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("core-locations").innerHTML = data;
+      initializeCoreLocationCards();
+    });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeCoreLocationCards();
+  });
+
 function initializeCustomRegionSelect() {
   const customSelects = document.querySelectorAll("[data-custom-select]");
 
@@ -137,4 +148,64 @@ function initializeCustomRegionSelect() {
       }
     });
   });
+}
+
+function initializeCoreLocationCards() {
+  const cardGrid = document.getElementById("coreLocationGrid");
+
+  if (!cardGrid) {
+    return;
+  }
+
+  if (cardGrid.dataset.initialized === "true") {
+    return;
+  }
+
+  cardGrid.dataset.initialized = "true";
+
+  const profiles = [
+    {
+      id: 1,
+      name: "Amsterdam",
+      image: "/assets/images/locations.jpg",
+    },
+ 
+   
+  ];
+
+  const cardsMarkup = profiles
+    .map(
+      (profile, index) => `
+        <div class="curated-profile-card relative rounded-[18.15px] overflow-hidden" data-card-index="${index}">
+          <img
+            src="${profile.image}"
+            alt="${profile.name}"
+            class="w-full h-[210px] lg:h-[455px] object-cover"
+          />
+          <div class="absolute bottom-0 w-full lg:h-[156.8px] overflow-hidden">
+            <div
+              class="absolute inset-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,white_60%,transparent)]"
+            ></div>
+
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
+            ></div>
+
+            <div
+              class="relative flex flex-col justify-end h-full py-3 px-3 lg:px-[14.52px] text-white"
+            >
+              <h3
+                class="text-center text-sm lg:text-2xl font-medium lg:mb-[9.81px] leading-[110%]"
+              >
+                ${profile.name}
+              </h3>
+
+            </div>
+          </div>
+        </div>
+      `,
+    )
+    .join("");
+
+  cardGrid.innerHTML = cardsMarkup;
 }
