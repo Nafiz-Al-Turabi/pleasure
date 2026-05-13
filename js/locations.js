@@ -33,6 +33,12 @@ fetch("../components/locations/find-your-city.html")
       document.getElementById("core-locations").innerHTML = data;
       initializeCoreLocationCards();
     });
+  fetch("../components/locations/all-locations.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("all-locations").innerHTML = data;
+      initializeCoreLocationCards();
+    });
 
   document.addEventListener("DOMContentLoaded", () => {
     initializeCoreLocationCards();
