@@ -30,4 +30,9 @@ fetch("../components/blog/our-companion.html")
   .then((data) => {
     document.getElementById("our-companion").innerHTML = data;
   });
+fetch("../components/blog/details.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("details").innerHTML = data;
+  });
 
