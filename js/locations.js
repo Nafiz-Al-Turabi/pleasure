@@ -37,7 +37,7 @@ fetch("../components/locations/find-your-city.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("all-locations").innerHTML = data;
-      initializeCoreLocationCards();
+      initializeAllLocations();
     });
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -152,6 +152,228 @@ function initializeCustomRegionSelect() {
       if (event.key === "Escape") {
         closeMenu();
       }
+    });
+  });
+}
+
+function initializeAllLocations() {
+  const root = document.getElementById("allLocationsRoot");
+
+  if (!root || root.dataset.initialized === "true") {
+    return;
+  }
+
+  root.dataset.initialized = "true";
+
+  const locationGroups = [
+    {
+      title: "NOORD-HOLLAND",
+      label: "Noord-Holland",
+      visibleCount: 12,
+      cities: [
+        "Amsterdam",
+        "Haarlem",
+        "Amstelveen",
+        "Zaandam",
+        "Hoofddorp",
+        "Schiphol",
+        "Purmerend",
+        "Beverwijk",
+        "Alkmaar",
+        "Hoorn",
+        "Zandvoort",
+        "Hilversum",
+        "Edam",
+        "Volendam",
+        "Bussum",
+      ],
+    },
+    {
+      title: "ZUID-HOLLAND",
+      label: "Zuid-Holland",
+      visibleCount: 12,
+      cities: [
+        "Rotterdam",
+        "Den Haag",
+        "Leiden",
+        "Delft",
+        "Dordrecht",
+        "Gouda",
+        "Zoetermeer",
+        "Schiedam",
+        "Vlaardingen",
+        "Noordwijk",
+        "Katwijk",
+        "Lisse",
+        "Rijswijk",
+        "Maassluis",
+        "Alphen aan den Rijn",
+      ],
+    },
+    {
+      title: "UTRECHT",
+      label: "Utrecht",
+      visibleCount: 12,
+      cities: [
+        "Utrecht",
+        "Amersfoort",
+        "Zeist",
+        "Nieuwegein",
+        "Houten",
+        "Woerden",
+        "Veenendaal",
+        "IJsselstein",
+        "Soest",
+        "Bunnik",
+        "Breukelen",
+        "De Bilt",
+        "Maarssen",
+        "Leusden",
+        "Rhenen",
+      ],
+    },
+    {
+      title: "FLEVOLAND",
+      label: "Flevoland",
+      visibleCount: 5,
+      cities: [
+        "Almere",
+        "Lelystad",
+        "Dronten",
+        "Emmeloord",
+        "Zeewolde",
+        "Urk",
+        "Biddinghuizen",
+        "Swifterbant",
+      ],
+    },
+    {
+      title: "OTHER CITIES",
+      label: "Other cities",
+      visibleCount: 5,
+      toggleLabel: "Show more cities",
+      cities: [
+        "Arnhem",
+        "Nijmegen",
+        "Eindhoven",
+        "Breda",
+        "Zwolle",
+        "Groningen",
+        "Tilburg",
+        "Maastricht",
+        "Leeuwarden",
+        "Dordrecht",
+      ],
+    },
+  ];
+
+  const cityItemClass =
+    "text-[15px] lg:text-base times-font text-[#2E2C2A] leading-[100%]";
+
+  const renderGroup = (group) => {
+    const hiddenCities = group.cities.length - group.visibleCount;
+    const toggleLabel = group.toggleLabel || `Show more cities in ${group.label}`;
+    const collapseLabel = `Show fewer cities in ${group.label}`;
+
+    const cityList = group.cities
+      .map((city, index) => {
+        const isHidden = index >= group.visibleCount;
+
+        return `
+          <li class="${cityItemClass} ${isHidden ? "hidden" : ""}" data-location-city-hidden="${isHidden}">
+            ${city}
+          </li>
+        `;
+      })
+      .join("");
+
+    const toggleButton =
+      hiddenCities > 0
+        ? `
+          <button
+            type="button"
+            class="location-toggle inline-flex w-fit whitespace-nowrap text-sm lg:text-base text-[#8B7354] text-left mt-4"
+            data-location-toggle
+            aria-expanded="false"
+            data-show-more="${toggleLabel} >"
+            data-show-less="${collapseLabel} >"
+          >
+            ${toggleLabel} &gt;
+          </button>
+        `
+        : "";
+
+    return `
+      <div class="flex h-full w-full flex-col items-start" data-location-column>
+        <h2 class="text-xl lg:text-2xl leading-[100%] uppercase times-font mb-4">
+          ${group.title}
+        </h2>
+        <div class="flex h-full w-full flex-col items-start">
+          <ul class="space-y-1">${cityList}</ul>
+          <div class="flex-1"></div>
+          ${toggleButton}
+        </div>
+      </div>
+    `;
+  };
+
+  const renderColumn = (groups, options = {}) => {
+    const { stretchFirstGroup = false } = options;
+    const columnGroups = groups.map(renderGroup).join("");
+
+    if (groups.length === 1) {
+      return columnGroups;
+    }
+
+    return `
+      <div class="flex w-full flex-col items-start gap-6">
+        ${groups
+          .map((group, index) => {
+            const isStretchFirstGroup = stretchFirstGroup && index === 0;
+
+            return `
+              <div class="${isStretchFirstGroup ? "flex-1" : ""} w-full">
+                ${renderGroup(group)}
+              </div>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
+  };
+
+  root.innerHTML = `
+    <div class="grid grid-cols-1 gap-y-12 gap-x-12 md:grid-cols-2 lg:grid-cols-4 items-stretch">
+      ${renderColumn([locationGroups[0]])}
+      ${renderColumn([locationGroups[1]])}
+      ${renderColumn([locationGroups[2]])}
+      ${renderColumn([locationGroups[3], locationGroups[4]], {
+        stretchFirstGroup: true,
+      })}
+    </div>
+  `;
+
+  root.querySelectorAll("[data-location-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const columnGroup = button.closest("[data-location-column]");
+
+      if (!columnGroup) {
+        return;
+      }
+
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      const hiddenCities = columnGroup.querySelectorAll(
+        "[data-location-city-hidden='true']",
+      );
+
+      hiddenCities.forEach((city) => {
+        city.classList.toggle("hidden", isExpanded);
+      });
+
+      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.textContent = isExpanded
+        ? button.dataset.showMore || button.textContent
+        : button.dataset.showLess || button.textContent;
     });
   });
 }
