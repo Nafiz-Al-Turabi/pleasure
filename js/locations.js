@@ -45,6 +45,11 @@ fetch("../components/locations/find-your-city.html")
     .then((data) => {
       document.getElementById("confirmation-works").innerHTML = data;
     });
+  fetch("../components/locations/discretion.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("discretion").innerHTML = data;
+    });
 
   document.addEventListener("DOMContentLoaded", () => {
     initializeCoreLocationCards();
