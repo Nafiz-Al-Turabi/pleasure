@@ -308,8 +308,8 @@ function initializeAllLocations() {
         <h2 class="text-xl lg:text-2xl leading-[100%] uppercase times-font mb-4">
           ${group.title}
         </h2>
-        <div class="flex h-full w-full flex-col items-start">
-          <ul class="space-y-1">${cityList}</ul>
+        <div class="flex h-full w-full flex-col items-start border-b lg:border-none border-[#CEC8BF] pb-6 lg:pb-0">
+          <ul class="space-y-1 border-l border-black/10 lg:border-none pl-2 lg:pl-0">${cityList}</ul>
           <div class="flex-1"></div>
           ${toggleButton}
         </div>
