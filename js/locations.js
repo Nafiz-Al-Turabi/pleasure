@@ -33,11 +33,17 @@ fetch("../components/locations/find-your-city.html")
       document.getElementById("core-locations").innerHTML = data;
       initializeCoreLocationCards();
     });
+
   fetch("../components/locations/all-locations.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("all-locations").innerHTML = data;
       initializeAllLocations();
+    });
+  fetch("../components/locations/confirmation-works.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("confirmation-works").innerHTML = data;
     });
 
   document.addEventListener("DOMContentLoaded", () => {
