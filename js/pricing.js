@@ -19,3 +19,9 @@ fetch("../components/pricing/pricing-hero.html")
   .then((data) => {
     document.getElementById("pricing-hero").innerHTML = data;
   });
+  
+fetch("../components/pricing/pricing-guidance.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("pricing-guidance").innerHTML = data;
+  });
