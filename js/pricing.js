@@ -29,5 +29,7 @@ fetch("../components/pricing/pricing-guidance.html")
 fetch("../components/pricing/pricing-guide-text.html")
   .then((response) => response.text())
   .then((data) => {
-    document.getElementById("pricing-guide-text").innerHTML = data;
+    document.querySelectorAll(".pricing-guide-text").forEach((element) => {
+      element.innerHTML = data;
+    });
   });
