@@ -25,11 +25,17 @@ fetch("../components/pricing/pricing-guidance.html")
   .then((data) => {
     document.getElementById("pricing-guidance").innerHTML = data;
   });
-  
+
 fetch("../components/pricing/pricing-guide-text.html")
   .then((response) => response.text())
   .then((data) => {
     document.querySelectorAll(".pricing-guide-text").forEach((element) => {
       element.innerHTML = data;
     });
+  });
+
+fetch("../components/pricing/base-rates.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("base-rates").innerHTML = data;
   });
